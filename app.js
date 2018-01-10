@@ -16,11 +16,11 @@ var app = express();
 mongoose.connect('mongodb://localhost:27017/NodeDealerApp_DB');
 
 mongoose.connection.on('connected',function () {
-    console.log("Connected at port @27017");
+    console.log("Connected at MongoDB ");
 });
 
 mongoose.connection.on('error',function (err) {
-    if(err){    console.log("Error in Connection"+err);
+    if(err){    console.log("Error in Connection "+err);
     }
 });
 
