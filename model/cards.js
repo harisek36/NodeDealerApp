@@ -8,7 +8,7 @@ var cardSchema = new Schema({
         required:true
     },
     score:{
-        type:number,
+        type:String,
         required:true
     }
 
