@@ -95,20 +95,21 @@ export class CardService {
   }
 
 
-  getOverallGameAverage(gameHistory:CardGameDetails[]):string{
+  getOverallGameAverage(gameHistory:CardGameDetails[]):any{
 
-    let sum:number;
-    let avg:number;
+    let sum:number = 0;
+    let avg:number = 0;
     if(gameHistory != null) {
-      for (let game of gameHistory){
-        sum +=  game.score;
+      for (let game of gameHistory) {
+        sum = sum + parseInt(game.score.toString());
+        console.log(sum);
       }
+
       avg = (sum/gameHistory.length);
-      avg.toFixed(2);
-      return avg.toString();
+      return avg;
 
     }else{
-      return "0";
+      return 0;
     }
 
   }

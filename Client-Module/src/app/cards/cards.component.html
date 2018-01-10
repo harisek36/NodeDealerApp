@@ -47,7 +47,7 @@
 
       <td>
         <div class="form-control" role="group" aria-label="Basic example">
-          <div align="center"> Score : {{Score}}</div>
+          <div align="center"> Score : {{((Score/104)*100).toFixed(2)}}%</div>
         </div>
       </td>
 
@@ -55,7 +55,7 @@
 
       <td>
         <div class="form-control" role="group" aria-label="Basic example">
-          <div align="center"> Game Average : {{Average}}</div>
+          <div align="center"> Game Average : {{Average.toFixed(2)}}</div>
         </div>
       </td>
 

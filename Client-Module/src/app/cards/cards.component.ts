@@ -16,13 +16,14 @@ export class CardsComponent implements OnInit {
   GameList:CardGameDetails[];
   Score:number;
   // MaxScore: string = '0';
-  Average:string ='0' ;
+  Average:number;
 
 
   constructor(public cardService:CardService) {
     this.OriginalCard = this.cardService.getOriginal();
     this.CurrentGameCards = this.OriginalCard;
-    this.Average = '0';
+    this.Average = 0;
+    this.Score = 0;
 
   }
 
@@ -71,7 +72,7 @@ export class CardsComponent implements OnInit {
   }
 
   deleteAllGamePlay(){
-        this.Average = this.cardService.getOverallGameAverage([]);
+        this.Average = this.cardService.getOverallGameAverage(this.GameList);
         this.cardService.deleteGamePlay().subscribe();
         this.getGamePlayHistory();
 
