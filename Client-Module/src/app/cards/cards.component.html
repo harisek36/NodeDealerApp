@@ -1,0 +1,122 @@
+
+<div class="jumbotron">
+  <h1 class="display-3">Hello, Welcome to NODE DEALER </h1>
+   <h3>MEAN Stack Application</h3>
+  <p class="lead">Using the MEAN stack, create a single-page web app that shuffles a standard deck of 52 cards,
+    deals them in a matrix of 13 columns by 4 rows, and calculates the deal’s “score” based on the
+    rules to be described.</p>
+  <p>For each deal, store the deck configuration and the score in the database. Display an average
+    score across all historical scores. Display the deck with a button labeled "Deal Again" to deal the
+    next deck.</p>
+</div>
+
+<div class="jumbotron">
+  <h2 class="display-3"> Start your Game </h2>
+
+  <table class="table table-hover">
+  <tbody>
+<tr class="table-active">
+  <td *ngFor="let cards of CurrentGameCards[0]" >{{ cards}}</td>
+</tr>
+</tbody>
+  <tbody>
+  <tr class="table-active">
+    <td *ngFor="let cards of CurrentGameCards[1]" >{{ cards}}</td>
+  </tr>
+  </tbody>
+  <tbody>
+  <tr class="table-active">
+    <td *ngFor="let cards of CurrentGameCards[2]" >{{ cards}}</td>
+  </tr>
+  </tbody>
+  <tbody>
+  <tr class="table-active">
+    <td *ngFor="let cards of CurrentGameCards[3]" >{{ cards}}</td>
+  </tr>
+  </tbody>
+</table>
+
+  <table class="table table-hover">
+    <tbody>
+    <tr class="table-active">
+      <td>
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <button type="button"  (click)="DealAgain()"  class="btn btn-secondary">Deal Again</button>
+        </div>
+      </td>
+
+      <td>
+        <div class="form-control" role="group" aria-label="Basic example">
+          <div align="center"> Score : {{Score}}</div>
+        </div>
+      </td>
+
+
+
+      <td>
+        <div class="form-control" role="group" aria-label="Basic example">
+          <div align="center"> Game Average : {{Average}}</div>
+        </div>
+      </td>
+
+      <td>
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <button type="button"  (click)="deleteAllGamePlay()"  class="btn btn-secondary">Clear Game History</button>
+        </div>
+      </td>
+
+
+    </tr>
+    </tbody>
+  </table>
+
+
+
+
+
+  <div class="jumbotron" >
+
+    <h1> Game History </h1>
+
+    <table class="table table-hover">
+
+
+          <tr class="table-active" >
+            <div *ngFor = "let gameList of GameList">
+
+          <td>ID#  {{gameList._id}}</td>
+
+          <td>
+            <table class="table table-hover">
+            <tbody>
+            <tr class="table-active">
+              <td *ngFor="let cards of gameList.shuffledCards[0]" >{{ cards}}</td>
+            </tr>
+            </tbody>
+            <tbody>
+            <tr class="table-active">
+              <td *ngFor="let cards of gameList.shuffledCards[1]" >{{ cards}}</td>
+            </tr>
+            </tbody>
+            <tbody>
+            <tr class="table-active">
+              <td *ngFor="let cards of gameList.shuffledCards[2]" >{{ cards}}</td>
+            </tr>
+            </tbody>
+            <tbody>
+            <tr class="table-active">
+              <td *ngFor="let cards of gameList.shuffledCards[3]" >{{ cards}}</td>
+            </tr>
+            </tbody>
+            </table>
+            </td>
+
+              <td>Score :{{gameList.score|json}}</td>
+            </div>
+          </tr>
+
+
+    </table>
+  </div>
+
+</div>
